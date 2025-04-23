@@ -1,0 +1,23 @@
+"""Vector AutoRegression helper functions."""
+from __future__ import annotations
+
+import pandas as pd
+import statsmodels.tsa.api as smt
+from typing import Tuple
+
+
+def fit_var(train_df: pd.DataFrame, maxlags: int | None = None):
+    """Fit VAR on *train_df* (all columns treated as endogenous)."""
+    if maxlags is None:
+        maxlags = min(10, len(train_df) // 10)
+    model = smt.VAR(train_df)
+    return model.fit(maxlags=maxlags)
+
+
+def forecast(var_res, steps: int) -> pd.DataFrame:
+    """Return DataFrame forecast with same columns as training set."""
+    input_y = var_res.endog[-var_res.k_ar :]
+    fcast = var_res.forecast(input_y, steps=steps)
+    cols = var_res.names
+    idx = pd.date_range(start=0, periods=steps, freq="D")  # caller should reindex later
+    return pd.DataFrame(fcast, columns=cols, index=idx)
