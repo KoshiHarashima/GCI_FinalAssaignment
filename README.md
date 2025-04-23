@@ -11,7 +11,7 @@ AirREGI コールセンターの 1 日あたり問い合わせ件数 **`call_num
 
 ## 1. ディレクトリ構成
 
-```text
+
 air-callnum-forecast/
 ├── notebooks/          # 実験用 Jupyter Notebook
 ├── src/                # 再利用可能な Python モジュール
@@ -28,7 +28,11 @@ air-callnum-forecast/
 ├── requirements.txt    # pip 用
 └── README.md
 
+
+---
+
 ## 2. 環境構築
+
 Conda を利用する場合（推奨）
 git clone https://github.com/your-name/air-callnum-forecast.git
 cd air-callnum-forecast
@@ -39,6 +43,8 @@ venv + pip を利用する場合
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+
+---
 
 ## 3. データ取得手順
 ファイル名	説明
@@ -54,6 +60,8 @@ python src/01_feature_engineering.py \
        --raw_dir data/raw \
        --out_path data/processed/merged_df_cleaned.csv
 
+---
+
 ## 4. 再現手順
 
 ステップ	コマンド	生成物
@@ -61,6 +69,8 @@ EDA 用グラフ	python src/00_EDA.py	reports/figures/
 通常期モデル（2020-03）	python src/02_model_VAR_XGB.py --scenario normal	models/final_xgb_normal.json
 駆け込み期モデル（2019-09）	python src/02_model_VAR_XGB.py --scenario peak	models/final_xgb_peak.json
 ARIMA ベースライン	python src/03_model_ARIMA.py	reports/metrics/arima_metrics.json
+
+---
 
 ## 5. 主な結果
 シナリオ	モデル	MAE	RMSE
