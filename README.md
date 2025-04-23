@@ -77,10 +77,4 @@ ARIMA ベースライン	python src/03_model_ARIMA.py	reports/metrics/arima_metr
 駆け込み期 (19-09)	VAR → XGBoost	68.4	111.3
 通常期ベースライン	ARIMA(4,1,0)	54.1	59.9
 ※ 数値はサンプル。再実行時は最新結果に差し替えてください。
-
-予測 CSV → models/pred_<scenario>.csv
-
-メトリクス JSON → reports/metrics/
-
-グラフ → reports/figures/
 ```
