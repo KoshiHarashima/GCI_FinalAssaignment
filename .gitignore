@@ -1,0 +1,33 @@
+# ---------------- Python & Jupyter ----------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---------------- Environments --------------------
+.venv/
+env/
+venv/
+.Python
+*.env
+*.env.*
+
+# ---------------- OS / Editor ---------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ---------------- Data & Models -------------------
+data/raw/           # 元データ（巨大ファイル・機密ファイル）はコミットしない
+data/**/*.csv
+data/**/*.parquet
+models/*.pkl
+models/*.json
+reports/figures/
+reports/metrics/
+
+# ---------------- Logs & Outputs ------------------
+*.log
+*.tmp
+*.out
