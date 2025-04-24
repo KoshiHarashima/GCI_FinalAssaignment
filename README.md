@@ -50,12 +50,6 @@ cm_data.csv	CM 放映フラグ
 regi_call_data_transform.csv	コールセンター問い合わせ件数
 gt_service_name.csv	Google Trends（週単位）
 上記 5 ファイルを Google Drive → data/raw/ に配置
-
-前処理 & 特徴量生成
-python src/01_feature_engineering.py \
-       --raw_dir data/raw \
-       --out_path data/processed/merged_df_cleaned.csv
-
 ```
 
 ## 4. 再現手順
